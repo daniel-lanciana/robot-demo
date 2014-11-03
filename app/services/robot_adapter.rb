@@ -9,27 +9,29 @@ class RobotAdapter
 
   # Validates and parses the input, calls relevant Robot methods
   def input(input)
-    input = input.strip.downcase
+    if input != nil
+      input = input.strip.downcase
 
-    # In order of anticipated usage from most to least
-    case input
-      when "move"
-        @robot.move
-      when "right"
-        @robot.right
-      when "left"
-        @robot.left
-      when "report"
-        @robot.report
-      else
-        if RobotAdapter.valid_place_command?(input)
-          # If a valid PLACE command, strip the arguments out and call .place
-          args = input.gsub("place ", "").split(",")
-          @robot.place(args[0].to_i, args[1].to_i, args[2].to_sym)
+      # In order of anticipated usage from most to least
+      case input
+        when "move"
+          @robot.move
+        when "right"
+          @robot.right
+        when "left"
+          @robot.left
+        when "report"
+          @robot.report
         else
-          # Return error message
-          AppConfig.msg_place_args
-        end
+          if RobotAdapter.valid_place_command?(input)
+            # If a valid PLACE command, strip the arguments out and call .place
+            args = input.gsub("place ", "").split(",")
+            @robot.place(args[0].to_i, args[1].to_i, args[2].to_sym)
+          else
+            # Return error message
+            return AppConfig.msg_place_args
+          end
+      end
     end
   end
 

@@ -16,31 +16,35 @@ class Robot
   attr_accessor :pos_y
   attr_accessor :facing
 
-  # Place the robot on the table (if valid x, y positions)
+  # Place the robot on the table (if valid x, y positions). Returns empty string.
   def place(pos_x, pos_y, facing)
     if Robot.valid_placement?(pos_x) && Robot.valid_placement?(pos_y)
       @pos_x, @pos_y, @facing = pos_x, pos_y, facing
       @placed = true
+      ""
     end
   end
 
-  # If on the table, rotate the robot 90 degrees left
+  # If on the table, rotate the robot 90 degrees left. Returns empty string.
   def left
     if @placed then
       @facing = DIRECTIONS.prev_elem_infinite(@facing)
     end
+    ""
   end
 
-  # If on the table, rotate the robot 90 degrees right
+  # If on the table, rotate the robot 90 degrees right. Returns empty string.
   def right
     if @placed then
       @facing = DIRECTIONS.next_elem_infinite(@facing)
     end
+    ""
   end
 
-  # If on the table, move the robot forward one position
+  # If on the table, move the robot forward one position. Returns empty string.
   def move
     if @placed then move_forward end
+    ""
   end
 
   # If on the table, report the robot's position and direction -- otherwise return an error message

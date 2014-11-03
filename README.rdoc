@@ -36,12 +36,12 @@ A simulation of a toy robot moving on a square tabletop. Programming exercise fo
 * Need to require 'test_helper' in order to load AppConfig and extending the ActionController (tests run slower)
 * Full code comments, use of static methods where applicable
 * Generated rdoc
+* Conventions (single/double quotes, brackets around arguments)? Consensus? Consistency?
 
 == TODO
 
-* Conventions (single/double quotes, brackets around arguments)? Consensus? Consistency?
 * Heroku?
-* GUI (Twitter Bootstrap? Robot Heart)
+* Better interface (Twitter Bootstrap? Robot Heart)
 
 == Resources
 
@@ -50,5 +50,5 @@ A simulation of a toy robot moving on a square tabletop. Programming exercise fo
 * http://brandonhilkert.com/blog/7-reasons-why-im-sticking-with-minitest-and-fixtures-in-rails/ (pro Minitest and Fixtures)
 * http://code.tutsplus.com/tutorials/ruby-for-newbies-testing-with-rspec--net-21297 (simple RSpec guide)
 * http://www.agileventures.org/articles/testing-with-rspec-stubs-mocks-factories-what-to-choose (Mocks)
-* http://www.mattsears.com/articles/2011/12/10/minitest-quick-reference
+* http://www.mattsears.com/articles/2011/12/10/minitest-quick-reference (Minitest cheat sheet)
 * http://regex101.com/ (regular expression tester)

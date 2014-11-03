@@ -63,5 +63,21 @@ describe RobotController, "Robot simulator integration tests" do
 
       assert_equal "0,4,WEST", @adapter.input("REPORT")
     end
+
+    it "returns nothing on successful place" do
+      assert_empty @adapter.input("PLACE 0,0,NORTH")
+    end
+
+    it "returns nothing on rotate left" do
+      assert_empty @adapter.input("LEFT")
+    end
+
+    it "returns nothing on rotate right" do
+      assert_empty @adapter.input("RIGHT")
+    end
+
+    it "returns nothing on move forward" do
+      assert_empty @adapter.input("MOVE")
+    end
   end
 end

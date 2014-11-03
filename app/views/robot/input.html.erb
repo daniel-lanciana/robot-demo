@@ -1,0 +1,17 @@
+<h1>Hello World</h1>
+
+<h3><%= @message %></h3>
+
+<div class="row">
+  <%= form_tag '/robot/input', :method => "get" do %>
+    <%= text_field_tag(:input, 'place 0,0,NORTH', class: 'form-control') %>
+    <%= submit_tag("Place!", class: 'btn btn-default') %>
+  <% end %>
+</div>
+
+<a href="/robot/input?input=move">Move</a>
+<a href="/robot/input?input=left">Left</a>
+<a href="/robot/input?input=right">Right</a>
+<a href="/">Reset</a>
+
+<h3><%= @report %></h3>
