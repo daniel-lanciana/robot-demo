@@ -1,28 +1,42 @@
-== README
+== Brief
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simulation of a toy robot moving on a square tabletop. Programming exercise for REA job application.
 
-Things you may want to cover:
+== Requirements
 
-* Ruby version
+* 5x5 table
+* No obstructions
+* Any movement resulting in the robot falling off the table are to be ignored. Further input accepted.
+* Commands: PLACE, MOVE, LEFT, RIGHT, REPORT
+** PLACE(X, Y, FACING) places the robot on the table facing the direction input
+** MOVE the robot 1 space forward
+** LEFT rotate the robot 90 degrees
+** RIGHT rototate the robot 90 degrees
+** REPORT announces the X, Y and direction the robot is facing
+* Origin position 0,0 the Southwest corner
+* Robot must be placed on the table
+* Ignore all commands until a valid PLACE command
+* Robot can be re-placed on the table
+* Input source developer's choice (standard input, file etc.)
+* Graphical representation not required
 
-* System dependencies
+== Comments
 
-* Configuration
+* Read up on Minitest v RSpec, decided to choose Minitest for simplicity
+* Unit tests anticipate the use of a global config and non-predetermined board size (extensible)
+* Decided to use web application as the input source. Designed with adapter pattern to allow easy porting to other input sources (e.g. command line)
+* Unit tests for Robot model, input adapter, basic controller
+* Integration test for entire simulation
+* Tests exclude method brackets for cleaner readability (plus little chaining occuring)
+* One assertion per test
+* Ignores case
+* TDD used, but tests may need to be fixed as IDE has no static checking and can't run tests yet because objects do not exist (e.g. NameError)
 
-* Database creation
+== Resources
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* http://blog.arvidandersson.se/2012/03/28/minimalicous-testing-in-ruby-1-9 (Minitest introduction, Spec-only)
+* http://ruby.awsblog.com/post/TxUMU0234OS1Q3/From-RSpec-to-Minitest (pro Minitest, Spec-only)
+* http://brandonhilkert.com/blog/7-reasons-why-im-sticking-with-minitest-and-fixtures-in-rails/ (pro Minitest and Fixtures)
+* http://code.tutsplus.com/tutorials/ruby-for-newbies-testing-with-rspec--net-21297 (simple RSpec guide)
+* http://www.agileventures.org/articles/testing-with-rspec-stubs-mocks-factories-what-to-choose (Mocks)
+* http://www.mattsears.com/articles/2011/12/10/minitest-quick-reference
