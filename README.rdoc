@@ -32,6 +32,10 @@ A simulation of a toy robot moving on a square tabletop. Programming exercise fo
 * Ignores case
 * TDD used, but tests may need to be fixed as IDE has no static checking and can't run tests yet because objects do not exist (e.g. NameError)
 
+== TODO
+
+* Unit tests failing to load AppConfig (doesn't run app_config and if forced Rails is unititalised). Did not happen with RSpec. Using class variable instead for the time being...
+
 == Resources
 
 * http://blog.arvidandersson.se/2012/03/28/minimalicous-testing-in-ruby-1-9 (Minitest introduction, Spec-only)

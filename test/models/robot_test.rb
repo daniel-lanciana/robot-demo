@@ -1,37 +1,36 @@
 require 'minitest/autorun'
+require './app/models/robot'
 
 describe Robot, "Robot model tests" do
+  MSG_PLACE_FIRST = 'Please place the robot on the table first...' #AppConfig.msg.place_first
+
   before do
     @robot = Robot.new
-  end
-
-  after do
-    @robot.destroy!
   end
 
   describe "before the robot is successfully placed" do
     it "cannot be placed off the table in negative position" do
       @robot.place -1, -1, :north
-      @robot.report.must_equal AppConfig.msg.place_first
+      @robot.report.must_equal MSG_PLACE_FIRST
     end
 
     it "cannot be placed off the table" do
       @robot.place Table.height + 1, Table.width + 1, :north
-      @robot.report.must_equal AppConfig.msg.place_first
+      @robot.report.must_equal MSG_PLACE_FIRST
     end
 
     it "left command is ignored" do
       @robot.left
-      @robot.report.must_equal AppConfig.msg.place_first
+      @robot.report.must_equal MSG_PLACE_FIRST
     end
 
     it "right command is ignored" do
       @robot.right
-      @robot.report.must_equal AppConfig.msg.place_first
+      @robot.report.must_equal MSG_PLACE_FIRST
     end
 
     it "report command is ignored" do
-      @robot.report.must_equal AppConfig.msg.place_first
+      @robot.report.must_equal MSG_PLACE_FIRST
     end
   end
 
@@ -154,7 +153,7 @@ describe Robot, "Robot model tests" do
         @robot.right
       end
 
-      @robot.report.must_equal "0,0,WEST"
+      @robot.report.must_equal "0,0,NORTH"
     end
   end
 end

@@ -39,5 +39,6 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 group :test do
+  # Use the latest minitest gem (not bundled with Ruby)
   gem 'minitest'
 end
