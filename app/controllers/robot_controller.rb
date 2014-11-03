@@ -20,6 +20,9 @@ class RobotController < ApplicationController
   # Take an input as GET request parameter and run through the adapter, returning messages to the view
   def input
     @message = @@adapter.input params[:input]
+
+    # Debug stuff
     @report = @@adapter.input "REPORT"
+    @robot = @@adapter.robot
   end
 end

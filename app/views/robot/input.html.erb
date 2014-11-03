@@ -14,4 +14,19 @@
 <a href="/robot/input?input=right">Right</a>
 <a href="/">Reset</a>
 
+<table id="chess_board" cellpadding="0" cellspacing="0">
+<% (4).downto(0).each do |y| %>
+    <tr>
+      <% (0..4).each do |x| %>
+      <td>
+        <%= x %>, <%= y %>
+        <% if @robot != nil && x == @robot.pos_x && y == @robot.pos_y %>
+            <%= image_tag "mm-#{@robot.facing}.png" %>
+        <% end %>
+      </td>
+      <% end %>
+    </tr>
+<% end %>
+</table>
+
 <h3><%= @report %></h3>
