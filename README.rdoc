@@ -37,13 +37,11 @@ A simulation of a toy robot moving on a square tabletop. Programming exercise fo
 * Full code comments, use of static methods where applicable
 * Generated rdoc
 * Conventions (single/double quotes, brackets around arguments)? Consensus? Consistency?
-* Web interface for ease-of-use (free text, buttons, optional board representation)
+* Web interface for ease-of-use (free text, buttons, optional board representation). Borrowed REA styling instead of Bootstrap etc.
 
 == TODO
 
 * Heroku?
-* Better interface styling (Twitter Bootstrap?)
-* Readme nested bullets
 
 == Resources
 
