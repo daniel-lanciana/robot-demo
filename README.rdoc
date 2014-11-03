@@ -32,10 +32,15 @@ A simulation of a toy robot moving on a square tabletop. Programming exercise fo
 * Ignores case
 * TDD used, but tests may need to be fixed as IDE has no static checking and can't run tests yet because objects do not exist (e.g. NameError)
 * Monkey patch Array object to support infinite LinkedList next/prev functionality for cleaner robot rotation (no switch statements)
+* Much less help from the IDE than a static typed language, easier to StackOverflow search!
 
-== Help!
+== TODO
 
 * Unit tests failing to load AppConfig (doesn't run app_config and if forced Rails is unititalised). Did not happen with RSpec. Using class variable instead for the time being...
+* Consistent double/single quotes
+* Change some methods to static (no state/instance variable access)
+* Code comments
+* Heroku?
 
 == Resources
 
@@ -45,3 +50,4 @@ A simulation of a toy robot moving on a square tabletop. Programming exercise fo
 * http://code.tutsplus.com/tutorials/ruby-for-newbies-testing-with-rspec--net-21297 (simple RSpec guide)
 * http://www.agileventures.org/articles/testing-with-rspec-stubs-mocks-factories-what-to-choose (Mocks)
 * http://www.mattsears.com/articles/2011/12/10/minitest-quick-reference
+* http://regex101.com/ (regular expression tester)

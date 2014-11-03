@@ -3,6 +3,7 @@ defaults: &defaults
   table_length: 5
   msg:
     place_first: Please place the robot on the table first...
+    place_args: Invalid PLACE command arguments: x-position, y-position, NORTH/SOUTH/EAST/WEST
 
 development:
   <<: *defaults
