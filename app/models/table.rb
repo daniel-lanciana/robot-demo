@@ -2,6 +2,6 @@
 # extensibility through different table sizes (square) and the possibility of obstructions.
 module Table
   def self.length
-    5 #AppConfig.table_length
+    AppConfig.table_length
   end
 end

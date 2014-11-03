@@ -2,6 +2,7 @@
 # a LinkedList where the last.next pointer points to the start of the array. Old implementation left in on purpose.
 # Patch acceptable because only extending functionality and couldn't find alternative solution online.
 class Array
+  # Returns the next element in the array. If the last element returns the first element (loops).
   def next_elem_infinite(item)
     index = self.index(item)
 
@@ -14,6 +15,7 @@ class Array
     end
   end
 
+  # Returns the previous element in the array. If the first element returns the last element (loops).
   def prev_elem_infinite(item)
     index = self.index(item)
 

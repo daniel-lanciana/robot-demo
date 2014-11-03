@@ -34,7 +34,7 @@ describe RobotAdapter, "Robot adapter test" do
     end
 
     it "calls the PLACE method" do
-      @robot.expect :place, nil, [123, 456, "north"]
+      @robot.expect :place, nil, [123, 456, :north]
       @adapter.input "PLACE 123,456,NORTH"
       @robot.verify
     end

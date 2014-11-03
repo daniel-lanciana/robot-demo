@@ -34,15 +34,14 @@ A simulation of a toy robot moving on a square tabletop. Programming exercise fo
 * Monkey patch Array object to support infinite LinkedList next/prev functionality for cleaner robot rotation (no switch statements)
 * Much less help from the IDE than a static typed language, easier to StackOverflow search!
 * Need to require 'test_helper' in order to load AppConfig and extending the ActionController (tests run slower)
+* Full code comments, use of static methods where applicable
 
 == TODO
 
-* Consistent double/single quotes
-* Change some methods to static (no state/instance variable access)
-* Code comments
+* Conventions (single/double quotes, brackets around arguments)? Consensus? Consistency?
+* Rdoc
 * Heroku?
-* Test suite
-* GUI
+* GUI (Twitter Bootstrap? Robot Heart)
 
 == Resources
 
