@@ -8,11 +8,11 @@ A simulation of a toy robot moving on a square tabletop. Programming exercise fo
 * No obstructions
 * Any movement resulting in the robot falling off the table are to be ignored. Further input accepted.
 * Commands: PLACE, MOVE, LEFT, RIGHT, REPORT
-** PLACE(X, Y, FACING) places the robot on the table facing the direction input
-** MOVE the robot 1 space forward
-** LEFT rotate the robot 90 degrees
-** RIGHT rototate the robot 90 degrees
-** REPORT announces the X, Y and direction the robot is facing
+ * PLACE(X, Y, FACING) places the robot on the table facing the direction input
+ * MOVE the robot 1 space forward
+ * LEFT rotate the robot 90 degrees
+ * RIGHT rototate the robot 90 degrees
+ * REPORT announces the X, Y and direction the robot is facing
 * Origin position 0,0 the Southwest corner
 * Robot must be placed on the table
 * Ignore all commands until a valid PLACE command
