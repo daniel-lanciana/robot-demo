@@ -22,7 +22,7 @@ A simulation of a toy robot moving on a square tabletop. Programming exercise fo
 
 == Comments
 
-* Read up on Minitest v RSpec, decided to choose Minitest for simplicity
+* Read up on Minitest v RSpec, decided to choose Minitest with standard matchers/mocks for simplicity. Easy enough to leverage Mocha, Shoulda etc.
 * Unit tests anticipate the use of a global config and non-predetermined board size (extensible)
 * Decided to use web application as the input source. Designed with adapter pattern to allow easy porting to other input sources (e.g. command line)
 * Unit tests for Robot model, input adapter, basic controller
@@ -31,10 +31,12 @@ A simulation of a toy robot moving on a square tabletop. Programming exercise fo
 * One assertion per test
 * Ignores case
 * TDD used, but tests may need to be fixed as IDE has no static checking and can't run tests yet because objects do not exist (e.g. NameError)
+* Monkey patch Array object to support infinite LinkedList next/prev functionality for cleaner robot rotation (no switch statements). Old implementation purposely left in as alternative.
 
 == TODO
 
 * Unit tests failing to load AppConfig (doesn't run app_config and if forced Rails is unititalised). Did not happen with RSpec. Using class variable instead for the time being...
+* Refactor Robot move method?
 
 == Resources
 

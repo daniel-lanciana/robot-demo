@@ -1,7 +1,10 @@
+require './app/models/array'
 require './app/models/table'
 
 class Robot
   MSG_PLACE_FIRST = 'Please place the robot on the table first...' #AppConfig.msg.place_first
+  # Array must be in order
+  DIRECTIONS = [:north, :east, :south, :west]
 
   include Table
 
@@ -20,64 +23,25 @@ class Robot
   end
 
   def left
-    if placed
-      case @facing
-        when :north
-          @facing = :west
-        when :south
-          @facing = :east
-        when :east
-          @facing = :north
-        # No else statement because we want to ignore potential bad input
-        when :west
-          @facing = :south
-      end
+    if @placed then
+      @facing = DIRECTIONS.prev_elem_infinite(@facing)
     end
+    # if @placed then rotate_left end
   end
 
   def right
-    if placed
-      case @facing
-        when :north
-          @facing = :east
-        when :south
-          @facing = :west
-        when :east
-          @facing = :south
-        # No else statement because we want to ignore potential bad input
-        when :west
-          @facing = :north
-      end
+    if @placed then
+      @facing = DIRECTIONS.next_elem_infinite(@facing)
     end
+    # if @placed then rotate_right end
   end
 
   def move
-    if placed
-      case @facing
-        when :north
-          if valid_move?(:y, @pos_y + 1)
-            @pos_y = @pos_y + 1
-          end
-        when :south
-          if valid_move?(:y, @pos_y - 1)
-            @pos_y = @pos_y - 1
-          end
-        when :east
-          if valid_move?(:x, @pos_x + 1)
-            @pos_x = @pos_x + 1
-          end
-          # No else statement because we want to ignore potential bad input
-        when :west
-          if valid_move?(:x, @pos_x - 1)
-            @pos_x = @pos_x - 1
-          end
-      end
-    end
+    if @placed then move_forward end
   end
 
   def report
-    if @placed
-      "#{@pos_x},#{@pos_y},#{@facing}".upcase
+    if @placed then "#{@pos_x},#{@pos_y},#{@facing}".upcase
     else
       MSG_PLACE_FIRST
     end
@@ -95,7 +59,58 @@ class Robot
     return true
   end
 
-  # TODO: Refactor to pass in block to updated @pos variable?
+=begin
+  def rotate_left
+    case @facing
+      when :north
+        @facing = :west
+      when :south
+        @facing = :east
+      when :east
+        @facing = :north
+      # No else statement because we want to ignore potential bad input
+      when :west
+        @facing = :south
+    end
+  end
+
+  def rotate_right
+    case @facing
+      when :north
+        @facing = :east
+      when :south
+        @facing = :west
+      when :east
+        @facing = :south
+      # No else statement because we want to ignore potential bad input
+      when :west
+        @facing = :north
+    end
+  end
+=end
+
+  def move_forward
+    case @facing
+      when :north
+        if valid_move?(:y, @pos_y + 1)
+          @pos_y = @pos_y + 1
+        end
+      when :south
+        if valid_move?(:y, @pos_y - 1)
+          @pos_y = @pos_y - 1
+        end
+      when :east
+        if valid_move?(:x, @pos_x + 1)
+          @pos_x = @pos_x + 1
+        end
+      # No else statement because we want to ignore potential bad input
+      when :west
+        if valid_move?(:x, @pos_x - 1)
+          @pos_x = @pos_x - 1
+        end
+    end
+  end
+
   def valid_move?(axis, proposed_pos)
     if (proposed_pos < 0)
       return false
