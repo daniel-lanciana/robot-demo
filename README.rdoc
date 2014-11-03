@@ -35,11 +35,11 @@ A simulation of a toy robot moving on a square tabletop. Programming exercise fo
 * Much less help from the IDE than a static typed language, easier to StackOverflow search!
 * Need to require 'test_helper' in order to load AppConfig and extending the ActionController (tests run slower)
 * Full code comments, use of static methods where applicable
+* Generated rdoc
 
 == TODO
 
 * Conventions (single/double quotes, brackets around arguments)? Consensus? Consistency?
-* Rdoc
 * Heroku?
 * GUI (Twitter Bootstrap? Robot Heart)
 
