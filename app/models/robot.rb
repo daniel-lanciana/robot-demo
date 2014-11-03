@@ -26,18 +26,12 @@ class Robot
     if @placed then
       @facing = DIRECTIONS.prev_elem_infinite(@facing)
     end
-
-    # Old implementation left on purpose to show original solution
-    # if @placed then rotate_left end
   end
 
   def right
     if @placed then
       @facing = DIRECTIONS.next_elem_infinite(@facing)
     end
-
-    # Old implementation left on purpose to show original solution
-    # # if @placed then rotate_right end
   end
 
   def move
@@ -80,36 +74,4 @@ class Robot
         update_pos('pos_x') { -1 }
     end
   end
-
-=begin
-Old implementation left on purpose to show original solution
-
-  def rotate_left
-    case @facing
-      when :north
-        @facing = :west
-      when :south
-        @facing = :east
-      when :east
-        @facing = :north
-      # No else statement because we want to ignore potential bad input
-      when :west
-        @facing = :south
-    end
-  end
-
-  def rotate_right
-    case @facing
-      when :north
-        @facing = :east
-      when :south
-        @facing = :west
-      when :east
-        @facing = :south
-      # No else statement because we want to ignore potential bad input
-      when :west
-        @facing = :north
-    end
-  end
-=end
 end
