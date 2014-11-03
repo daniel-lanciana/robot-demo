@@ -23,7 +23,7 @@ A simulation of a toy robot moving on a square tabletop. Programming exercise fo
 == Comments
 
 * Read up on Minitest v RSpec, decided to choose Minitest with standard matchers/mocks for simplicity. Easy enough to leverage Mocha, Shoulda etc.
-* Unit tests anticipate the use of a global config and non-predetermined board size (extensible)
+* Unit tests anticipate the use of a global config and non-predetermined square board size (extensible)
 * Decided to use web application as the input source. Designed with adapter pattern to allow easy porting to other input sources (e.g. command line)
 * Unit tests for Robot model, input adapter, basic controller
 * Integration test for entire simulation

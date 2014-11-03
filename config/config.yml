@@ -1,7 +1,6 @@
 # Global config options accessed by AppConfig.foo
 defaults: &defaults
-  table_height: 5
-  table_width: 5
+  table_length: 5
   msg:
     place_first: Please place the robot on the table first...
 

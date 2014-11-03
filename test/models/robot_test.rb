@@ -15,7 +15,7 @@ describe Robot, "Robot model tests" do
     end
 
     it "cannot be placed off the table" do
-      @robot.place Table.height + 1, Table.width + 1, :north
+      @robot.place Table.length + 1, Table.length + 1, :north
       @robot.report.must_equal MSG_PLACE_FIRST
     end
 
@@ -122,10 +122,10 @@ describe Robot, "Robot model tests" do
     end
 
     it "moving off the table is ignored" do
-      (Table.height + 1).times do
+      (Table.length + 1).times do
         @robot.move
       end
-      @robot.report.must_equal "0,5,NORTH"
+      @robot.report.must_equal "0,4,NORTH"
     end
   end
 
@@ -146,7 +146,7 @@ describe Robot, "Robot model tests" do
       @robot.place 0, 0, :north
 
       4.times do
-        (Table.height + 1).times do
+        (Table.length + 1).times do
           @robot.move
         end
 

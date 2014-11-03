@@ -3,7 +3,7 @@ require './app/models/table'
 
 class Robot
   MSG_PLACE_FIRST = 'Please place the robot on the table first...' #AppConfig.msg.place_first
-  # Array must be in order
+  # Array must be in clockwise order for traversing next/prev
   DIRECTIONS = [:north, :east, :south, :west]
 
   include Table
@@ -15,7 +15,7 @@ class Robot
   attr_accessor :facing
 
   def place(pos_x, pos_y, facing)
-    if valid_placement?(pos_x, pos_y)
+    if valid_placement?(pos_x) && valid_placement?(pos_y)
       # Can't auto set arguments to instance variables without meta-programming
       @pos_x, @pos_y, @facing = pos_x, pos_y, facing
       @placed = true
@@ -26,6 +26,8 @@ class Robot
     if @placed then
       @facing = DIRECTIONS.prev_elem_infinite(@facing)
     end
+
+    # Old implementation left on purpose to show original solution
     # if @placed then rotate_left end
   end
 
@@ -33,7 +35,9 @@ class Robot
     if @placed then
       @facing = DIRECTIONS.next_elem_infinite(@facing)
     end
-    # if @placed then rotate_right end
+
+    # Old implementation left on purpose to show original solution
+    # # if @placed then rotate_right end
   end
 
   def move
@@ -49,17 +53,37 @@ class Robot
 
   private
 
-  def valid_placement?(pos_x, pos_y)
-    if (pos_x < 0 || pos_x > Table.width)
-      return false
-    elsif (pos_y < 0 || pos_y > Table.height)
-      return false
+  # Default return is false
+  def valid_placement?(pos)
+    if pos.between?(0, Table.length - 1)
+      return true
     end
+  end
 
-    return true
+  def update_pos(name, &block)
+    pos = self.send(name) + block.call
+
+    if valid_placement?(pos)
+      instance_variable_set("@#{name}", pos)
+    end
+  end
+
+  def move_forward
+    case @facing
+      when :north
+        update_pos('pos_y') { +1 }
+      when :south
+        update_pos('pos_y') { -1 }
+      when :east
+        update_pos('pos_x') { +1 }
+      when :west
+        update_pos('pos_x') { -1 }
+    end
   end
 
 =begin
+Old implementation left on purpose to show original solution
+
   def rotate_left
     case @facing
       when :north
@@ -88,38 +112,4 @@ class Robot
     end
   end
 =end
-
-  def move_forward
-    case @facing
-      when :north
-        if valid_move?(:y, @pos_y + 1)
-          @pos_y = @pos_y + 1
-        end
-      when :south
-        if valid_move?(:y, @pos_y - 1)
-          @pos_y = @pos_y - 1
-        end
-      when :east
-        if valid_move?(:x, @pos_x + 1)
-          @pos_x = @pos_x + 1
-        end
-      # No else statement because we want to ignore potential bad input
-      when :west
-        if valid_move?(:x, @pos_x - 1)
-          @pos_x = @pos_x - 1
-        end
-    end
-  end
-
-  def valid_move?(axis, proposed_pos)
-    if (proposed_pos < 0)
-      return false
-    elsif (axis.equal?(:x) && proposed_pos > Table.width)
-      return false
-    elsif (axis.equal?(:y) && proposed_pos > Table.height)
-      return false
-    end
-
-    true
-  end
 end
