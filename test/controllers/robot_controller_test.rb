@@ -1,32 +1,30 @@
+require 'test_helper'
 require 'minitest/autorun'
+require './app/controllers/application_controller'
+require './app/controllers/robot_controller'
 
 describe RobotController, "Robot controller tests" do
   before do
     @controller = RobotController.new
     @adapter = MiniTest::Mock.new
     @controller.adapter = @adapter
-  end
-
-  after do
-    @controller.destroy!
+    @controller.params = {:input => 'FOO'}
   end
 
   describe "input passed to the controller" do
     it "is passed to the adapter service" do
       @adapter.expect :input, nil, ["FOO"]
-      # Not sure about syntax to set the params[:input => 'FOO'] passed from the web to the method
-      @controller.params = {:input => 'FOO'}
       @controller.index
       @adapter.verify
     end
   end
 
   describe "output returned from the adapter service" do
-    it "is put in the params" do
-      @adapter.expect :input, "FOO", []
+    it "exists and is put into an instance variable for display in the view" do
+      @adapter.expect :input, "BAR", ["FOO"]
       @controller.index
       # Not sure if this is the best way to test an instance variable passed from controller accessible in the view
-      assert_equal "FOO", @nessage
+      assert_equal "BAR", @controller.instance_variable_get("@message")
     end
   end
 end

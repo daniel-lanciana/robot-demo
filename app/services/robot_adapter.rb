@@ -1,6 +1,4 @@
 class RobotAdapter
-  MSG_PLACE_ARGS = "Invalid PLACE command arguments: x-position, y-position, NORTH/SOUTH/EAST/WEST" #AppConfig.msg.place_args
-
   attr_accessor :robot
 
   def input(input)
@@ -21,7 +19,7 @@ class RobotAdapter
           args = input.gsub("place ", "").split(",")
           robot.place(args[0].to_i, args[1].to_i, args[2])
         else
-          MSG_PLACE_ARGS
+          AppConfig.msg_place_args
         end
     end
   end

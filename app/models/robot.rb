@@ -2,7 +2,6 @@ require './app/models/array'
 require './app/models/table'
 
 class Robot
-  MSG_PLACE_FIRST = 'Please place the robot on the table first...' #AppConfig.msg.place_first
   # Array must be in clockwise order for traversing next/prev
   DIRECTIONS = [:north, :east, :south, :west]
 
@@ -41,7 +40,7 @@ class Robot
   def report
     if @placed then "#{@pos_x},#{@pos_y},#{@facing}".upcase
     else
-      MSG_PLACE_FIRST
+      AppConfig.msg_place_first
     end
   end
 
