@@ -42,3 +42,8 @@ group :test do
   # Use the latest minitest gem (not bundled with Ruby)
   gem 'minitest'
 end
+
+group :production do
+  # gems specifically for Heroku go here
+  gem "pg"
+end
