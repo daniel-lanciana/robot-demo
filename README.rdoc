@@ -1,6 +1,6 @@
 == Brief
 
-A simulation of a toy robot moving on a square tabletop. Programming exercise for REA job application.
+A simulation of a toy robot moving on a square tabletop. Programming exercise for REA job application. Running demo at: https://floating-cove-6107.herokuapp.com
 
 == Requirements
 
@@ -38,10 +38,7 @@ A simulation of a toy robot moving on a square tabletop. Programming exercise fo
 * Generated rdoc
 * Conventions (single/double quotes, brackets around arguments)? Consensus? Consistency?
 * Web interface for ease-of-use (free text, buttons, optional board representation). Borrowed REA styling instead of Bootstrap etc.
-
-== TODO
-
-* Heroku?
+* Deployed to Heroku (bit slow performance, but it's free!). Installing pg gem was a (once-off) pain point.
 
 == Resources
 
