@@ -7,14 +7,20 @@ describe RobotController, "Robot controller tests" do
   before do
     @controller = RobotController.new
     @adapter = MiniTest::Mock.new
-    @controller.adapter = @adapter
+    @controller.set_adapter(@adapter)
     @controller.params = {:input => 'FOO'}
+
   end
 
   describe "input passed to the controller" do
     it "is passed to the adapter service" do
       @adapter.expect :input, nil, ["FOO"]
-      @controller.index
+
+      # Additional view data for the board representation (optional)
+      @adapter.expect :input, nil, ["REPORT"]
+      @adapter.expect :robot, nil
+
+      @controller.input
       @adapter.verify
     end
   end
@@ -22,7 +28,12 @@ describe RobotController, "Robot controller tests" do
   describe "output returned from the adapter service" do
     it "exists and is put into an instance variable for display in the view" do
       @adapter.expect :input, "BAR", ["FOO"]
-      @controller.index
+
+      # Additional view data for the board representation (optional)
+      @adapter.expect :input, nil, ["REPORT"]
+      @adapter.expect :robot, nil
+
+      @controller.input
       # Not sure if this is the best way to test an instance variable passed from controller accessible in the view
       assert_equal "BAR", @controller.instance_variable_get("@message")
     end

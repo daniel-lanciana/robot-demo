@@ -17,7 +17,6 @@ describe RobotController, "Robot simulator integration tests" do
     it "places and moves the robot" do
       @adapter.input "PLACE 0,0,NORTH"
       @adapter.input "MOVE"
-      @adapter.input "REPORT"
       assert_equal "0,1,NORTH", @adapter.input("REPORT")
     end
 
@@ -46,7 +45,6 @@ describe RobotController, "Robot simulator integration tests" do
     it "ignores input before a successful place" do
       @adapter.input "PLACE -1,0,NORTH"
       @adapter.input "LEFT"
-      puts @adapter.input("REPORT")
       assert_equal AppConfig.msg_place_first, @adapter.input("REPORT")
     end
 

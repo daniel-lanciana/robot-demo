@@ -34,8 +34,11 @@ describe Robot, "Robot model tests" do
   end
 
   describe "placing the robot on the table" do
-    it "successful placement" do
+    before do
       @robot.place 0, 0, :north
+    end
+
+    it "successful placement" do
       @robot.report.must_equal "0,0,NORTH"
     end
 
