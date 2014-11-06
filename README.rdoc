@@ -2,7 +2,7 @@
 
 A simulation of a toy robot moving on a square tabletop. Programming exercise for REA job application.
 
-Running demo at: https://floating-cove-6107.herokuapp.com (please note Demo is not thread-safe by design i.e. all users control the same robot!)
+Running demo at: https://floating-cove-6107.herokuapp.com (please note the demo is not thread-safe by design i.e. all users control the same robot!)
 
 == Requirements
 
