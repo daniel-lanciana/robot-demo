@@ -8,8 +8,8 @@ describe RobotAdapter, "Robot adapter test" do
 
   before do
     @adapter = RobotAdapter.new
-    @robot = MiniTest::Mock.new
-    @adapter.robot = @robot
+    @table = MiniTest::Mock.new
+    @adapter.table = @table
   end
 
   describe "given raw input commands" do
@@ -34,39 +34,39 @@ describe RobotAdapter, "Robot adapter test" do
     end
 
     it "calls the PLACE method" do
-      @robot.expect :place, nil, [123, 456, :north]
+      @table.expect :place, nil, [123, 456, :north]
       @adapter.input "PLACE 123,456,NORTH"
-      @robot.verify
+      @table.verify
     end
 
     it "calls the MOVE method" do
-      @robot.expect :move, nil
+      @table.expect :move, nil
       @adapter.input "MOVE"
-      @robot.verify
+      @table.verify
     end
 
     it "calls the LEFT method" do
-      @robot.expect :left, nil
+      @table.expect :left, nil
       @adapter.input "LEFT"
-      @robot.verify
+      @table.verify
     end
 
     it "calls the RIGHT method" do
-      @robot.expect :right, nil
+      @table.expect :right, nil
       @adapter.input "RIGHT"
-      @robot.verify
+      @table.verify
     end
 
     it "calls the REPORT method" do
-      @robot.expect :report, MOCK_REPORT
+      @table.expect :report, MOCK_REPORT
       report = @adapter.input "REPORT"
       assert_equal MOCK_REPORT, report
     end
 
     it "is case insensitive" do
-      @robot.expect :move, nil
+      @table.expect :move, nil
       @adapter.input "mOvE"
-      @robot.verify
+      @table.verify
     end
   end
 end
