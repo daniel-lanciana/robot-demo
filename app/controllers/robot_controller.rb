@@ -28,6 +28,6 @@ class RobotController < ApplicationController
 
     # Additional view data for the board representation (optional)
     @report = @@adapter.input "REPORT"
-    @robot = @@adapter.robot
+    @robot = @@adapter.table.robots[:default]
   end
 end

@@ -61,7 +61,7 @@
             <% (0..4).each do |x| %>
                 <td>
                   <% if @robot != nil && x == @robot.pos_x && y == @robot.pos_y %>
-                      <%= image_tag "mm-#{@robot.facing}.png" %>
+                      <%= image_tag "mm-#{@robot.direction}.png" %>
                   <% else %>
                       <%= x %>, <%= y %>
                   <% end %>
