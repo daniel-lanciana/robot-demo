@@ -7,9 +7,9 @@
     position: relative;
     margin-top:-160px;
 }
-.rui-main-logo {
+.rui-main-logo img {
     width:500px;
-    left:30%;
+    margin-left: -200px;
 }
 .select-holder {
     padding-top:10px;

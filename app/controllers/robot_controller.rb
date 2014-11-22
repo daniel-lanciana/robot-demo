@@ -1,18 +1,18 @@
-require './app/services/robot_adapter'
+require './app/services/demo_processor'
 
 # Web application access to the adapter class
 class RobotController < ApplicationController
   # Class variable to keep singleton object between requests (stateful). Bad web application design, but wen only for
   # convenience. For concurrent use, store object in an object store such as session or a database.
-  @@adapters = {} #RobotAdapter.new
+  @@adapters = {} #DemoProcessor.new
 
   # On initial load, re-initialise the adapter destorying any previous state (i.e. reset)
   def init
     # If setting a custom table height or width
     if params[:height].to_i > 0
-      @@adapters[request.session_options[:id].to_sym] = RobotAdapter.new params[:height].to_i, params[:width].to_i
+      @@adapters[request.session_options[:id].to_sym] = DemoProcessor.new params[:height].to_i, params[:width].to_i
     else
-      @@adapters[request.session_options[:id].to_sym] = RobotAdapter.new
+      @@adapters[request.session_options[:id].to_sym] = DemoProcessor.new
     end
 
     set_table_size

@@ -50,7 +50,6 @@ Running demo at: https://floating-cove-6107.herokuapp.com
 
 * Add multiple robots = Chaos monkey controlling robots (threads) + whenever change update view
 * Separate parsing and executing calls
-* Rename adapter to processor
 * View-layer util, functional tests http://guides.rubyonrails.org/testing.html
 
 == Resources

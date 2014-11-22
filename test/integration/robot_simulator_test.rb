@@ -6,7 +6,7 @@ require './app/controllers/robot_controller'
 describe RobotController, "Robot simulator integration tests" do
   describe "when given inputs" do
     before do
-      @adapter = RobotAdapter.new
+      @adapter = DemoProcessor.new
     end
 
     it "places the robot" do
@@ -81,7 +81,7 @@ describe RobotController, "Robot simulator integration tests" do
 
   describe "when modifying the table size larger" do
     before do
-      @adapter = RobotAdapter.new 10, 8
+      @adapter = DemoProcessor.new 10, 8
     end
 
     it "can place the robot outside the default boundaries" do
@@ -92,7 +92,7 @@ describe RobotController, "Robot simulator integration tests" do
 
   describe "when modifying the table size smaller" do
     before do
-      @adapter = RobotAdapter.new 2, 3
+      @adapter = DemoProcessor.new 2, 3
     end
 
     it "cannot place the robot in a position valid with default table size" do

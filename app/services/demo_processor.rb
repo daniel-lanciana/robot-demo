@@ -1,5 +1,5 @@
 # From the raw input performs validation and calls the relevant Robot methods. Adapter pattern.
-class RobotAdapter
+class DemoProcessor
   attr_accessor :table
 
   # On initialisation, create the Table
@@ -25,7 +25,7 @@ class RobotAdapter
         when "report"
           @table.report
         else
-          if RobotAdapter.valid_place_command?(input)
+          if DemoProcessor.valid_place_command?(input)
             # If a valid PLACE command, strip the arguments out and call .place
             args = input.gsub("place ", "").split(",")
             @table.place(args[0].to_i, args[1].to_i, args[2].to_sym)
