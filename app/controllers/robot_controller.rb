@@ -31,8 +31,13 @@ class RobotController < ApplicationController
     set_table_size
   end
 
+  # Default is 0,0,NORTH
   def place
-    perform_action "PLACE 0,0,NORTH"
+    x = params[:x] ? params[:x] : 0
+    y = params[:y] ? params[:y] : 0
+    direction = params[:direction] ? params[:direction] : "NORTH"
+
+    perform_action "PLACE "+ x.to_s + "," + y.to_s + "," + direction
   end
 
   def move

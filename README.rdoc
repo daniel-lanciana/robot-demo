@@ -48,13 +48,14 @@ Running demo at: https://floating-cove-6107.herokuapp.com
 * Skeleton for adding multiple robots with default ID field
 * Web interface buttons use new friendly AJAX endpoints. Robot now moved by JavaScript. No JS unit tests...
 * Chaos robot!
+* Monkey patch JavaScript array class -- just for fun
 
 == Missing
 
 * Multiple robots on the table at once (although basic foundations of ID are in place)
 * Functional tests on the view
 * Proper Javascript (modules, tests)
-* Robot monkey random place...
+* Run tests, polish this readme
 * Push to Heroku
 
 == Resources

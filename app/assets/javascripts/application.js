@@ -3,6 +3,8 @@
 //= require turbolinks
 //= require_tree .
 
+var DIRECTIONS = ['NORTH', 'SOUTH', 'EAST', 'WEST'];
+
 /**
  * Monkey patch Array class to return a random element.
  *
@@ -32,8 +34,11 @@ $( document ).ready(function() {
      */
     $(".actions .ajax").click(function(e){
         e.preventDefault();
+
+        var action = buildAction(this);
+
         $.ajax({type: "GET",
-            url: "/robot/" + $(this).attr('id'),
+            url: "/robot/" + action,
             // Always error because not returning valid JSON -- not important here
             error: function(result){
                 console.log("Response: " + result.responseText)
@@ -41,6 +46,27 @@ $( document ).ready(function() {
             }
         });
     });
+
+    /**
+     * Parses action from DOM element and, if PLACE, generates and appends random pos/direction
+     *
+     * @param elem
+     * @returns {*|jQuery}
+     */
+    function buildAction(elem) {
+        var action = $(elem).attr('id');
+
+        if (action == 'place') {
+            var y = Math.floor(Math.random() * $('#chess_board tr').length);
+            var x = Math.floor(Math.random() * $('#chess_board tr:first-child td').length);
+            var direction = DIRECTIONS.randomElement();
+
+            action += '?x=' + x + '&y=' + y + '&direction=' + direction;
+        }
+
+        console.log("Action: " + action)
+        return action;
+    }
 
     /**
      * Picks up any robot on the table and places a robot down, outputs report
@@ -78,7 +104,7 @@ $( document ).ready(function() {
         for (var i = 0; i < 10; i++) {
             setTimeout(function() {
                 var action = actions.randomElement();
-                $('.actions #' + action).trigger("click");
+                $('.actions #' + action).click();
             }, i * 500);
         }
     });
