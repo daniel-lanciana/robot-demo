@@ -8,7 +8,7 @@ class Table
   attr_accessor :width
   attr_accessor :robots
 
-  def initialize(height, width)
+  def initialize(height = 5, width = 5)
     @height = height
     @width = width
     # Empty hash of robots on the table to start

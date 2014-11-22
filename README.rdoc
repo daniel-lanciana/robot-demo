@@ -2,7 +2,7 @@
 
 A simulation of a toy robot moving on a square tabletop. Programming exercise for REA job application.
 
-Running demo at: https://floating-cove-6107.herokuapp.com (please note the demo is not thread-safe by design i.e. all users control the same robot!)
+Running demo at: https://floating-cove-6107.herokuapp.com
 
 == Requirements
 
@@ -43,17 +43,17 @@ Running demo at: https://floating-cove-6107.herokuapp.com (please note the demo 
 * Deployed to Heroku (bit slow performance, but it's free!). Installing pg gem was a (once-off) pain point.
 * Table knows about robots for extensibility (add more robots)
 * Support for dynamic board size
+* Basic thread-safety through a global class vairable map of RobotAdapter objects based on session ID
 
 == TO DO
 
 * Add multiple robots
 * Chaos monkey controlling robots (threads) + whenever change update view
-* Thread-safe?
 * Separate parsing and executing calls
 * Remove dead code/comments
 * Rename adapter to processor
 * Test wording? should...
-* View-layer tests? (table size...) Functional tests http://guides.rubyonrails.org/testing.html
+* View-layer util, functional tests http://guides.rubyonrails.org/testing.html
 
 == Resources
 
