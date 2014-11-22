@@ -1,23 +1,35 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
  *= require_tree .
  *= require_self
  */
 
+.rui-header {
+    position: relative;
+    margin-top:-160px;
+}
+.rui-main-logo {
+    width:500px;
+    left:30%;
+}
+.select-holder {
+    padding-top:10px;
+}
+#select-width, #select-height {
+    padding-bottom: 0px;
+    padding-top: 0px;
+    width: 60px;
+}
+.rui-button-brand {
+    margin-right:20px;
+}
 #chess_board img {
     width:60px;
 }
-#chess_board { border:5px solid #333; }
+#chess_board {
+    border:5px solid #333;
+    float:left;
+    margin-right:20px;
+}
 #chess_board td {
     background:#fff;
     background:-moz-linear-gradient(top, #fff, #eee);

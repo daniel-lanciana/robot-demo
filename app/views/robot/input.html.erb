@@ -4,9 +4,9 @@
   <title>Robot Demo</title>
 </head>
 <body class="buy rui-preload" data-rui-select-auto-init="false">
-<header class="rui-header rui-clearfix" data-auto-init="false" style="position: relative;margin-top:-160px;">
+<header class="rui-header rui-clearfix" data-auto-init="false">
   <div class="rui-grid rui-header-container">
-    <a title="realestate.com.au homepage" href="#" class="rui-main-logo" style="width:500px;left:30%;">
+    <a title="realestate.com.au homepage" href="#" class="rui-main-logo">
       <img src="/assets/rea-logo-v3.png" alt="realestate.com.au Australia lives here" />
     </a>
     <div class="rui-clearboth"></div>
@@ -45,16 +45,16 @@
         </button>
       </div>
 
-      <div class="min beds select-holder" style="padding-top:10px;">
+      <div class="min beds select-holder">
         <label>Table Width</label>
-        <select class="rui-input rui-select rui-select-rendered rui-default-selected" id="select-width" style="padding-bottom: 0px;padding-top: 0px;width: 60px;">
+        <select class="rui-input rui-select rui-select-rendered rui-default-selected" id="select-width">
           <% (1..20).each do |i| %>
               <option value="<%= i %>" <%= if i == @width then "selected" end %>><%= i %></option>
           <% end %>
         </select>
 
         <label>Height</label>
-        <select class="rui-input rui-select rui-select-rendered rui-default-selected" id="select-height" style="padding-bottom: 0px;padding-top: 0px;width: 60px;">
+        <select class="rui-input rui-select rui-select-rendered rui-default-selected" id="select-height">
           <% (1..20).each do |i| %>
               <option value="<%= i %>" <%= if i == @height then "selected" end %>><%= i %></option>
           <% end %>
@@ -64,15 +64,15 @@
     </div>
 
     <div style="padding-top:20px;padding-bottom:20px;">
-      <a id="place" class="rui-button-brand registerLink" style="margin-right:20px;" href="/robot/input?input=place+0%2C0%2Cnorth">Place @ Origin</a>
-      <a id="move" class="rui-button-brand registerLink" style="margin-right:20px;" href="/robot/input?input=move">Move</a>
-      <a id="left" class="rui-button-brand registerLink" style="margin-right:20px;" href="/robot/input?input=left">Left</a>
-      <a id="right" class="rui-button-brand registerLink" style="margin-right:20px;" href="/robot/input?input=right">Right</a>
-      <a id="report" class="rui-button-brand registerLink" style="margin-right:20px;" href="/robot/input?input=report">Report</a>
-      <a id="reset" class="rui-button-brand registerLink" style="margin-right:20px;" href="/">Reset</a>
+      <a id="place" class="rui-button-brand registerLink" href="/robot/input?input=place+0%2C0%2Cnorth">Place @ Origin</a>
+      <a id="move" class="rui-button-brand registerLink" href="/robot/input?input=move">Move</a>
+      <a id="left" class="rui-button-brand registerLink" href="/robot/input?input=left">Left</a>
+      <a id="right" class="rui-button-brand registerLink" href="/robot/input?input=right">Right</a>
+      <a id="report" class="rui-button-brand registerLink" href="/robot/input?input=report">Report</a>
+      <a id="reset" class="rui-button-brand registerLink" href="/">Reset</a>
     </div>
 
-    <table id="chess_board" cellpadding="0" cellspacing="0" style="float:left;margin-right:20px;">
+    <table id="chess_board" cellpadding="0" cellspacing="0">
       <% (@height - 1).downto(0).each do |y| %>
           <tr>
             <% (0).upto(@width - 1).each do |x| %>
@@ -91,11 +91,5 @@
     <h3>Report: <%= @report %></h3>
   </div>
 <% end %>
-
-<script>
-    //$("select").change(function() {
-    //    window.location.href = "/?height=" + $("#select-height option:selected").text() + "&width=" + $("#select-width option:selected").text();
-    //});
-</script>
 </body>
 </html>
