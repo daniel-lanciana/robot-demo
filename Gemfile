@@ -26,4 +26,6 @@ end
 group :production do
   # gems specifically for Heroku go here
   gem "pg"
+  # Required by Heroku for Rails4 logging
+  gem 'rails_12factor'
 end
