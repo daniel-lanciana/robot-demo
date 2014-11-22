@@ -12,6 +12,14 @@ Array.prototype.randomElement = function () {
     return this[Math.floor(Math.random() * this.length)]
 }
 
+/**
+ * Probably a much better way of doing this, but normal document.ready didn't work.
+ */
+function drawRobot(){
+    // Always fire because if entering manual input, we need to trigger the drawing of the robot...
+    $(".actions #report").click();
+}
+
 $( document ).ready(function() {
     // Reset, but with an overriding table height and width
     $("select").change(function() {
@@ -28,6 +36,7 @@ $( document ).ready(function() {
             url: "/robot/" + $(this).attr('id'),
             // Always error because not returning valid JSON -- not important here
             error: function(result){
+                console.log("Response: " + result.responseText)
                 updateRobot(result.responseText);
             }
         });
@@ -66,13 +75,10 @@ $( document ).ready(function() {
 
         e.preventDefault();
 
-        $('.actions #place').trigger("click");
-
         for (var i = 0; i < 10; i++) {
             setTimeout(function() {
                 var action = actions.randomElement();
-                console.log(action);
-                $('.actions #' + action).delay( 8000 ).trigger("click");
+                $('.actions #' + action).trigger("click");
             }, i * 500);
         }
     });

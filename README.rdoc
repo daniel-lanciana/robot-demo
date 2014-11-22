@@ -47,11 +47,14 @@ Running demo at: https://floating-cove-6107.herokuapp.com
 * Cleaned up dead code/comments auto-generated with a new Rails project
 * Skeleton for adding multiple robots with default ID field
 * Web interface buttons use new friendly AJAX endpoints. Robot now moved by JavaScript. No JS unit tests...
+* Chaos robot!
 
-== Nice but CBF
+== Missing
 
-* Create a 'Chaos Robot' button that launches a JavaScript thread that randomly moves a robot around
-* Add multiple robots = Chaos monkey controlling robots (threads) + whenever change update view
+* Multiple robots on the table at once (although basic foundations of ID are in place)
+* Functional tests on the view
+* Proper Javascript (modules, tests)
+* Robot monkey random place...
 * Push to Heroku
 
 == Resources

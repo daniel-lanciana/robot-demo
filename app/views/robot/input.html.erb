@@ -68,7 +68,7 @@
       <a id="move" class="ajax rui-button-brand registerLink" href="/robot/move">Move</a>
       <a id="left" class="ajax rui-button-brand registerLink" href="/robot/left">Left</a>
       <a id="right" class="ajax rui-button-brand registerLink" href="/robot/right">Right</a>
-      <a id="report" class="ajax rui-button-brand registerLink" href="/robot/report">Report</a>
+      <a id="report" class="ajax rui-button-brand registerLink" onload="alert('a')" href="/robot/report">Report</a>
       <a id="reset" class="rui-button-brand registerLink" href="/">Reset</a>
       <a id="chaos" class="rui-button-brand registerLink" href="#">Chaos <strike>Monkey</strike>Robot!</a>
     </div>
@@ -88,5 +88,9 @@
     <h3 id="output">&nbsp;</h3>
   </div>
 <% end %>
+<script>
+    // Call after page loaded
+    window.onload = drawRobot ;
+</script>
 </body>
 </html>
