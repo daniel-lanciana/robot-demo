@@ -3,6 +3,10 @@
  *= require_self
  */
 
+.actions {
+    padding-top:20px;
+    padding-bottom:20px;
+}
 .rui-header {
     position: relative;
     margin-top:-160px;

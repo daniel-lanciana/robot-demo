@@ -45,12 +45,13 @@ Running demo at: https://floating-cove-6107.herokuapp.com
 * Support for dynamic board size
 * Basic thread-safety through a global class vairable map of RobotAdapter objects based on session ID
 * Cleaned up dead code/comments auto-generated with a new Rails project
+* Skeleton for adding multiple robots with default ID field
+* Web interface buttons use new friendly AJAX endpoints. Robot now moved by JavaScript. No JS unit tests...
 
-== TO DO
+== Nice but CBF
 
+* Create a 'Chaos Robot' button that launches a JavaScript thread that randomly moves a robot around
 * Add multiple robots = Chaos monkey controlling robots (threads) + whenever change update view
-* Separate parsing and executing calls
-* View-layer util, functional tests http://guides.rubyonrails.org/testing.html
 * Push to Heroku
 
 == Resources

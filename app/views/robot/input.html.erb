@@ -63,32 +63,29 @@
       </div>
     </div>
 
-    <div style="padding-top:20px;padding-bottom:20px;">
-      <a id="place" class="rui-button-brand registerLink" href="/robot/input?input=place+0%2C0%2Cnorth">Place @ Origin</a>
-      <a id="move" class="rui-button-brand registerLink" href="/robot/input?input=move">Move</a>
-      <a id="left" class="rui-button-brand registerLink" href="/robot/input?input=left">Left</a>
-      <a id="right" class="rui-button-brand registerLink" href="/robot/input?input=right">Right</a>
-      <a id="report" class="rui-button-brand registerLink" href="/robot/input?input=report">Report</a>
+    <div class="actions">
+      <a id="place" class="ajax rui-button-brand registerLink" href="/robot/place">Place @ Origin</a>
+      <a id="move" class="ajax rui-button-brand registerLink" href="/robot/move">Move</a>
+      <a id="left" class="ajax rui-button-brand registerLink" href="/robot/left">Left</a>
+      <a id="right" class="ajax rui-button-brand registerLink" href="/robot/right">Right</a>
+      <a id="report" class="ajax rui-button-brand registerLink" href="/robot/report">Report</a>
       <a id="reset" class="rui-button-brand registerLink" href="/">Reset</a>
+      <a id="chaos" class="rui-button-brand registerLink" href="#">Chaos <strike>Monkey</strike>Robot!</a>
     </div>
 
     <table id="chess_board" cellpadding="0" cellspacing="0">
       <% (@height - 1).downto(0).each do |y| %>
-          <tr>
+          <tr class="<%= y %>">
             <% (0).upto(@width - 1).each do |x| %>
-                <td>
-                  <% if @robot != nil && x == @robot.pos_x && y == @robot.pos_y %>
-                      <%= image_tag "mm-#{@robot.direction}.png" %>
-                  <% else %>
-                      <%= x %>, <%= y %>
-                  <% end %>
+                <td class="<%= x %>">
+                    <%= x %>, <%= y %>
                 </td>
             <% end %>
           </tr>
       <% end %>
     </table>
 
-    <h3>Report: <%= @report %></h3>
+    <h3 id="output">&nbsp;</h3>
   </div>
 <% end %>
 </body>

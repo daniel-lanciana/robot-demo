@@ -16,6 +16,7 @@ class RobotController < ApplicationController
     end
 
     set_table_size
+
     render "robot/input"
   end
 
@@ -30,7 +31,38 @@ class RobotController < ApplicationController
     set_table_size
   end
 
+  def place
+    perform_action "PLACE 0,0,NORTH"
+  end
+
+  def move
+    perform_action "MOVE"
+  end
+
+  def left
+    perform_action "LEFT"
+  end
+
+  def right
+    perform_action "RIGHT"
+  end
+
+  def report
+    perform_action "REPORT"
+  end
+
   private
+
+  def perform_action(action)
+    adapter = @@adapters[request.session_options[:id].to_sym]
+
+    if adapter != nil
+      @message = adapter.input action
+      render status: 200, :json => adapter.input("REPORT")
+    else
+      render status: 400, :json => AppConfig.msg_place_first
+    end
+  end
 
   def set_table_size
     adapter = @@adapters[request.session_options[:id].to_sym]
