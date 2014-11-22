@@ -13,7 +13,13 @@ class RobotController < ApplicationController
 
   # On initial load, re-initialise the adapter destorying any previous state (i.e. reset)
   def init
-    @@adapter = RobotAdapter.new
+    if params[:height].to_i > 0
+      @@adapter = RobotAdapter.new params[:height].to_i, params[:width].to_i
+    else
+      @@adapter = RobotAdapter.new
+    end
+
+    set_table_size
     render "robot/input"
   end
 
@@ -29,5 +35,13 @@ class RobotController < ApplicationController
     # Additional view data for the board representation (optional)
     @report = @@adapter.input "REPORT"
     @robot = @@adapter.table.robots[:default]
+    set_table_size
+  end
+
+  private
+
+  def set_table_size
+    @height = @@adapter.table.height
+    @width = @@adapter.table.width
   end
 end

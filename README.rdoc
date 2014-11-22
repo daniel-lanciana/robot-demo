@@ -42,13 +42,18 @@ Running demo at: https://floating-cove-6107.herokuapp.com (please note the demo 
 * Web interface for ease-of-use (free text, buttons, optional board representation). Borrowed REA styling instead of Bootstrap etc.
 * Deployed to Heroku (bit slow performance, but it's free!). Installing pg gem was a (once-off) pain point.
 * Table knows about robots for extensibility (add more robots)
+* Support for dynamic board size
 
 == TO DO
 
-* Variable table sizes
 * Add multiple robots
 * Chaos monkey controlling robots (threads) + whenever change update view
 * Thread-safe?
+* Separate parsing and executing calls
+* Remove dead code/comments
+* Rename adapter to processor
+* Test wording? should...
+* View-layer tests? (table size...) Functional tests http://guides.rubyonrails.org/testing.html
 
 == Resources
 

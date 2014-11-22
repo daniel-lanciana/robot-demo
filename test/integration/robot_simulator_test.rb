@@ -78,4 +78,26 @@ describe RobotController, "Robot simulator integration tests" do
       assert_empty @adapter.input("MOVE")
     end
   end
+
+  describe "when modifying the table size larger" do
+    before do
+      @adapter = RobotAdapter.new 10, 8
+    end
+
+    it "can place the robot outside the default boundaries" do
+      @adapter.input "PLACE 7,7,NORTH"
+      assert_equal "7,7,NORTH", @adapter.input("REPORT")
+    end
+  end
+
+  describe "when modifying the table size smaller" do
+    before do
+      @adapter = RobotAdapter.new 2, 3
+    end
+
+    it "cannot place the robot in a position valid with default table size" do
+      @adapter.input "PLACE 3,3,NORTH"
+      assert_equal AppConfig.msg_place_first, @adapter.input("REPORT")
+    end
+  end
 end

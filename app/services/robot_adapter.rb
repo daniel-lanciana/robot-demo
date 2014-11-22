@@ -3,8 +3,8 @@ class RobotAdapter
   attr_accessor :table
 
   # On initialisation, create the Table
-  def initialize(*args)
-    @table = Table.new
+  def initialize(height = AppConfig.default_height, width = AppConfig.default_width)
+    @table = Table.new height, width
   end
 
   # Validates and parses the input, calls relevant Robot methods
