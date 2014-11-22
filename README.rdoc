@@ -44,17 +44,14 @@ Running demo at: https://floating-cove-6107.herokuapp.com
 * Table knows about robots for extensibility (add more robots)
 * Support for dynamic board size
 * Basic thread-safety through a global class vairable map of RobotAdapter objects based on session ID
+* Cleaned up dead code/comments auto-generated with a new Rails project
 
 == TO DO
 
-* Add multiple robots
-* Chaos monkey controlling robots (threads) + whenever change update view
+* Add multiple robots = Chaos monkey controlling robots (threads) + whenever change update view
 * Separate parsing and executing calls
-* Remove dead code/comments
 * Rename adapter to processor
-* Test wording? should...?
 * View-layer util, functional tests http://guides.rubyonrails.org/testing.html
-* Turbolinks pain. Remove < ApplicationControler and no links included...?
 
 == Resources
 
