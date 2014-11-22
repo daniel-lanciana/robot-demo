@@ -9,40 +9,51 @@ class DemoProcessor
 
   # Validates and parses the input, calls relevant Robot methods
   def input(input)
-    if input != nil
-      input = input.strip.downcase
+    cleaned_input = sanatise_input input
 
-      # In order of anticipated usage from most to least
-      case input
-        when "move"
-          @table.move
-        when "right"
-          @table.right
-          ""
-        when "left"
-          @table.left
-          ""
-        when "report"
-          @table.report
-        else
-          if DemoProcessor.valid_place_command?(input)
-            # If a valid PLACE command, strip the arguments out and call .place
-            args = input.gsub("place ", "").split(",")
-            @table.place(args[0].to_i, args[1].to_i, args[2].to_sym)
-          else
-            # Return error message
-            return AppConfig.msg_place_args
-          end
-      end
+    if valid_input? cleaned_input
+      process_input cleaned_input
+    else
+      # Return error message
+      return AppConfig.msg_place_args
     end
   end
 
   private
 
-  # Returns TRUE if the PLACE command matches the regular expression.
-  def self.valid_place_command?(input)
-    if input.match(/place [0-9]+,[0-9]+,(north|south|east|west)/)
+  # Clean up the input for parsing
+  def sanatise_input(input)
+    if input == nil
+      ''
+    else
+      input.strip.downcase
+    end
+  end
+
+  # Returns TRUE if a valid command
+  def valid_input?(input)
+    if input.match(/(move|right|left|report)/) || input.match(/place [0-9]+,[0-9]+,(north|south|east|west)/)
       true
+    end
+  end
+
+  def process_input(input)
+    # In order of anticipated usage from most to least
+    case input
+      when "move"
+        @table.move
+      when "right"
+        @table.right
+        ""
+      when "left"
+        @table.left
+        ""
+      when "report"
+        @table.report
+      else
+        # If a valid PLACE command, strip the arguments out and call .place
+        args = input.gsub("place ", "").split(",")
+        @table.place(args[0].to_i, args[1].to_i, args[2].to_sym)
     end
   end
 end
