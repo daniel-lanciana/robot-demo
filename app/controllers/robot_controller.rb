@@ -8,6 +8,10 @@ class RobotController < ApplicationController
 
   # On initial load, re-initialise the adapter destorying any previous state (i.e. reset)
   def init
+    # Session lazy loaded (i.e. not loaded) on production! Force session creation
+    # http://stackoverflow.com/questions/14665275/how-force-that-session-is-loaded
+    session["init"] = true
+
     # If setting a custom table height or width
     if params[:height].to_i > 0
       @@adapters[request.session_options[:id].to_sym] = DemoProcessor.new params[:height].to_i, params[:width].to_i
