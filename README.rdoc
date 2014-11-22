@@ -54,6 +54,7 @@ Running demo at: https://floating-cove-6107.herokuapp.com
 * Rename adapter to processor
 * Test wording? should...?
 * View-layer util, functional tests http://guides.rubyonrails.org/testing.html
+* Turbolinks pain. Remove < ApplicationControler and no links included...?
 
 == Resources
 
