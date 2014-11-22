@@ -33,7 +33,7 @@ Running demo at: https://floating-cove-6107.herokuapp.com
 * One assertion per test
 * Ignores case
 * TDD used, but tests may need to be fixed as IDE has no static checking and can't run tests yet because objects do not exist (e.g. NameError)
-* Monkey patch Array object to support infinite LinkedList next/prev functionality for cleaner robot rotation (no switch statements)
+* Monkey patch Array object to support infinite LinkedList next/prev functionality for cleaner robot rotation (no switch statements). Showing off a little -- must be used carefully!
 * Much less help from the IDE than a static typed language, easier to StackOverflow search!
 * Need to require 'test_helper' in order to load AppConfig and extending the ActionController (tests run slower)
 * Full code comments, use of static methods where applicable
@@ -41,22 +41,19 @@ Running demo at: https://floating-cove-6107.herokuapp.com
 * Conventions (single/double quotes, brackets around arguments)? Consensus? Consistency?
 * Web interface for ease-of-use (free text, buttons, optional board representation). Borrowed REA styling instead of Bootstrap etc.
 * Deployed to Heroku (bit slow performance, but it's free!). Installing pg gem was a (once-off) pain point.
-* Table knows about robots for extensibility (add more robots)
 * Support for dynamic board size
 * Basic thread-safety through a global class vairable map of RobotAdapter objects based on session ID
 * Cleaned up dead code/comments auto-generated with a new Rails project
 * Skeleton for adding multiple robots with default ID field
 * Web interface buttons use new friendly AJAX endpoints. Robot now moved by JavaScript. No JS unit tests...
 * Chaos robot!
-* Monkey patch JavaScript array class -- just for fun
+* Monkey patch JavaScript array class since already did it in Ruby (see: showing off)
 
 == Missing
 
 * Multiple robots on the table at once (although basic foundations of ID are in place)
 * Functional tests on the view
-* Proper Javascript (modules, tests)
-* Run tests, polish this readme
-* Push to Heroku
+* Proper Javascript (module pattern, tests)
 
 == Resources
 
