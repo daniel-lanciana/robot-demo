@@ -41,9 +41,8 @@ Running demo at: https://floating-cove-6107.herokuapp.com
 == Development
 
 * Read up on Minitest v RSpec, decided to choose Minitest DSL with standard matchers/mocks for simplicity
-  * TDD
   * Easy enough to leverage Mocha, Shoulda etc.
-  * Unit tests & integration tests
+  * TDD unit & integration tests
   * One assertion per test
   * No parenthesis for cleaner readability
 * Input ignores case
@@ -51,7 +50,7 @@ Running demo at: https://floating-cove-6107.herokuapp.com
 == Possible Improvements
 
 * Multiple robots on the table at once (although basic foundations of ID are in place)
-* Functional tests on the view
+* Functional tests on the ad-hoc web components (view, thin controller)
 * Proper Javascript (module pattern, tests)
 
 == Resources
