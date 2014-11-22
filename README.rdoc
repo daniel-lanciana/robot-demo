@@ -52,7 +52,7 @@ Running demo at: https://floating-cove-6107.herokuapp.com
 * Separate parsing and executing calls
 * Remove dead code/comments
 * Rename adapter to processor
-* Test wording? should...
+* Test wording? should...?
 * View-layer util, functional tests http://guides.rubyonrails.org/testing.html
 
 == Resources
